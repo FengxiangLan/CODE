@@ -1,0 +1,5 @@
+1. Observation of Binary Search
+	The size of search space reduced roughly by one half of the previous iteration and eventually the search space is reduced to 2 elements and to 1 element eventually
+2. Principles of Binary Search
+	1. We must guarantee that the sarch space decreases over time (after each iteration)
+	2. We must guarantee that the target (if exist) cannot be ruled out accidentally, when we change the value of Left or Right. (It is critical to define the rule about how to move the range for search)

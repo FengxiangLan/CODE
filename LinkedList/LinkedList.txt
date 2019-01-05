@@ -1,0 +1,41 @@
+Differents between array and linkedlist
+1. Array: the elements are not stored in consecutive memory
+2. List: the elements are not stored in consecutive space, but are connected by the
+		 "next" pointer/references.
+
+Array vs Linked List Comparison:
+	- Memory Layout:
+		- Array: consecutive allocated memory space, no overhead
+		- Linked List: non-consecutive, overhead of multiple objects with the "next" reference
+	- (Random) access time ? - get the element
+		- Array: O(1) ->calculating the offset is O(1) in value
+		- Linked List: O(n) worst case -> we can only traverse from the "HEAD"
+	- Search time (non-sorted) ?
+		- Array: O(n)
+		- Linked List: O(n)
+	- Search time (sorted)
+		- Array: O(logn) <- Binary search
+		- Linked List: O(n)
+
+1. ListNode head = null;
+	- null: the reference is not pointed to any Object on the Heap
+			Initialize to null, not pointing to any concrete object in the heap
+2. ListNode head = new ListNode(0);
+	- 1. allocate space on heap and create a new ListNode object with {value = 0, next = null}
+	- 2. return the object's memory address as the value of reference
+
+Linked List Operations:
+1. size()
+2. get(int index)
+3. set(int index, E e)
+4. add(int index, E e) addAll(int index, Collection c)
+5. add(E e) addAll(Collection c)
+6. remove()
+
+
+ArrayList和LinkedList的大致区别： 
+1.ArrayList是实现了基于动态数组的数据结构，LinkedList基于链表的数据结构。 （LinkedList是双向链表，有next也有previous）
+2.对于随机访问get和set，ArrayList觉得优于LinkedList，因为LinkedList要移动指针。 
+3.对于新增和删除操作add和remove，LinedList比较占优势，因为ArrayList要移动数据。
+
+
