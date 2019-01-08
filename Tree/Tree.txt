@@ -1,1 +1,58 @@
-Tree
+Binary Tree
+
+Tree nodes
+
+class TreeNode {
+	int key;
+	TreeNode left;
+	TreeNode right;
+	public TreeNode(int key) {
+		this.key = key;
+	}
+}
+
+LinkedList is a special kind of Tree (if there is only one child for each of the node in the binary tree, it can be reduced to a linked list)
+
+Usually, we use the root to represent the binary tree.
+
+General Tree, each node can have arbitrary number of children.
+
+class TreeNode {
+	int key;
+	List<TreeNode> children;
+	public TreeNode(int key) {
+		this.key = key;
+		children = new ArrayList<TreeNode>();
+	}
+}
+
+Tree is special kind of Graph
+
+class GraphNode {
+	int key;
+	List<GraphNode> neighbors;
+	public GraphNode(int key) {
+		this.key = key;
+		neighbors = new ArrayList<GraphNode>();
+	}
+}
+
+List<GraphNode> graph;
+
+Other representation: Adjacency list
+List<List<Integer>> graph;
+
+Traversals of Binary Tree
+preorder: root, left sub, right sub
+inorder: left sub, root, right sub
+postorder: left sub, right sub, root
+
+Recursive:
+	divide and conquer is nature of binary tree
+		- solve problem for left/right subtree
+		- solve the problem for root
+
+Iterative
+	could be complicated for binary tree
+
+Binary Search Tree () 
