@@ -55,4 +55,24 @@ Recursive:
 Iterative
 	could be complicated for binary tree
 
-Binary Search Tree () 
+Binary Search Tree (BST)
+is a binary tree maintains the following property:
+	for any of the nodes in the binary tree, all the nodes in its subtree is larger than itself, all the nodes in its left subtree is smaller than itself (compared by the key stored in each of the nodes).
+
+Basic Operations of Binary Search Tree
+	- search(): O(height) worse case O(n), average O(logn)
+	- insert(): O(height) worse case O(n), average O(logn)
+	- remove(): O(height) worse case O(n), average O(logn)
+
+Balanced Binary Search Tree (Self-balancing BST)
+search(), insert(), remove() operations are all guaranteed to be O(logn)
+Eg. AVL Tree, Red-Black Tree, etc
+
+Red-Black Tree
+	- Java: TreeMap/TreeSet
+	- C++: map/set
+
+Tail Recursion
+The recursive call is always the last execution statement.
+We can easily transfer the tail recursive to iterative solution.
+  
