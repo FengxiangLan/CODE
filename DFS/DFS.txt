@@ -1,1 +1,18 @@
-DFS.txt
+Depth-First Search
+
+DFS basic method:
+	1. what does it store on each level ? (每层代表什么意义)
+	2. how many different states should we try to put on this level ? (每层有多少个状态/case 需要 try)
+
+
+Example
+	all subsets of {a, b, c}
+
+	1. what does it store on each level ? 
+		- Three levels. For each level, it makes the decision on whether to put this element into the final set
+	2. how many different states should we try to put on this level ?
+		- two, each state (case) considers either select or not select
+
+
+
+
