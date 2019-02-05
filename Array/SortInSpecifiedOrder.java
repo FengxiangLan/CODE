@@ -74,3 +74,50 @@ public class SortInSpecifiedOrder {
 		}
 	}
 }
+
+/*
+static class MyComparator implements Comparator<Integer> {
+		private Map<Integer, Integer> map;
+		public MyComparator(int[] array) {
+			map = new HashMap<>();
+			for (int i = 0; i < array.length; i++) {
+				map.put(array[i], i);
+			}
+		}
+
+		@Override
+		public int compare(Integer i1, Integer i2) {
+			Integer index1 = map.get(i1);
+			Integer index2 = map.get(i2);
+			if (index1 != null && index2 != null) {
+				return index1.compareTo(index2);
+			}
+			else if (index1 == null && index2 == null) {
+				return i1.compareTo(i2);
+			}
+			return index1 != null ? -1 : 1;
+		}
+	}
+	public int[] sortSpecial(int[] A1, int[] A2) {
+		Integer[] newArray = getInteger(A1);
+		Arrays.sort(newArray, new MyComparator(A2));
+		getInt(newArray, A1);
+		return A1;
+	}
+
+
+	private Integer[] getInteger(int[] array) {
+		Integer[] newArray = new Integer[array.length];
+		for (int i = 0; i < array.length; i++) {
+			newArray[i] = array[i];
+		}
+		return newArray;
+	}
+
+	private void getInt(Integer[] newArray, int[] array) {
+		for (int i = 0; i < newArray.length; i++) {
+			array[i] = newArray[i];
+		}
+	}
+
+*/
