@@ -1,4 +1,4 @@
-public class SpiralOrderTraverse {
+public class SpiralOrderTraverseI {
 	 public List<Integer> spiral(int[][] matrix) {
 	 	List<Integer> res = new ArrayList<>();
 	 	helper(matrix, 0, matrix.length, res);
