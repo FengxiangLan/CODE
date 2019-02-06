@@ -1,4 +1,4 @@
-public class SpiralOrderGenerateII {
+public class SpiralOrderGenerateI {
 	public int[][] spiralGenerate(int n) {
 		int[][] matrix = new int[n][n];
 		int[] ele = {1};
