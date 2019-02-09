@@ -2,16 +2,16 @@ public class TwoSumSmaller {
 	public int smallerPairs(int[] array, int target) {
 		int res = 0;
 		Arrays.sort(array);
-		for (int i = 0; i < array.length - 1; i++) {
-			for (int j = i; j < array.length; j++) {
-				if (array[i] + array[j] < target) {
-					res++;
-				} else {
-					break;
-				}
+		int left = 0;
+		int right = array.length - 1;
+		while (left < right) {
+			if (array[left] + array[right] < target) {
+				res += (right - left);
+				left++;
+			} else {
+				right--;
 			}
 		}
-
 		return res;
 	}
 }
