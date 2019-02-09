@@ -4,6 +4,7 @@ import java.util.Arrays;
 public class TwoSumClosest {
 	public List<Integer> closest(int[] array, int target) {
 		List<Integer> res = new ArrayList<>();
+		Arrays.sort(array);
 		int left = 0;
 		int right = array.length - 1;
 		int closest = Integer.MAX_VALUE;
