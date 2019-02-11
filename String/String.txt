@@ -1,0 +1,2 @@
+1. Char Removal 
+	1.1 remove some particular chars from a string
