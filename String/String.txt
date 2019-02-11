@@ -15,4 +15,12 @@
 
 Popular representations of characters: an array of characters
 
-1. 
+1. String(char[] chars, int offset, int length)
+   Constructs a new String by decoding the specified subarray of bytes using the platform's default charset.
+2. substring(int beginIndex, int endIndex)
+   Returns a new string that is a substring of this string.
+   *** NOT INCLUDE ENDINDEX
+3. valueOf(int i)
+   Returns the string representation of the int argument.
+4. 
+
