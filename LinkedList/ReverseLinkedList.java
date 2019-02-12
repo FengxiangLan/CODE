@@ -10,6 +10,7 @@ public class ReverseLinkedList {
 
 		while (cur != null) {
 			next = cur.next;
+			cur.next = prev;
 			prev = cur;
 			cur = next;
 		}
