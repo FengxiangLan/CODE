@@ -12,7 +12,7 @@ public class RemoveSpaces {
 		char[] inputArray = input.toCharArray();
 		int slow = 0;
 		int fast = 0;
-		while (fast < input.length) {
+		while (fast < inputArray.length) {
 			if (inputArray[fast] == ' ' && (fast == 0) || inputArray[fast - 1] == ' ') {
 				fast++;
 			} else {
