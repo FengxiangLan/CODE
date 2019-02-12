@@ -1,0 +1,67 @@
+1. Linked List Insert At Index
+Insert a new element at a specific index in the given linked list. The index is 0 based, and if the index is out of the list's scope, you do not need to do anything.
+
+The new node can be inserted into three kinds of positions
+1. head of linkedlist
+2. in the linkedlist
+3. out the linkedlist
+
+if insert it into head that means the index is 0, we just need to let node as new head and the old head as the next node of this new head. then return new head
+
+if insert it into the linkedlist, we should first get the prev node of the position we want to insert into, then let the prev.next as new node's next and then let prev.next as new node, return old head;
+
+2. Insert In Sorted Linked List
+tips: track the prev node which (prev.next.val > node.val)
+
+3. Delete Node At Index
+tips: track the prev node
+	  if cur is null, return
+	  else let prev.next = cur.next; cur.next = null; return head;
+
+4. Remove Linked List Elements
+tips: keep contral of head
+	  dummyHead.next = head;
+	  cur = dummyHead;
+	  if cur.next == val
+	  	cur.next = cur.next.next;
+	  else
+	  	cur = cur.next;
+
+5. reverse LinkedList
+tips: myself.newNext = myself.Oldprev
+	  myself.newPrev = myself
+	  myself = myself.oldNext;
+
+6. merge two sorted linkedlist
+tips: keep control of head;
+	dummyHead.next = newHead
+	cur = dummpyHead;
+	if (one < two) {
+		cur.next = one
+	}
+	else {
+		cur.next = two
+	}
+
+	cur.next = the rest
+7. middle node of linkedlist (fast.next != null && fast.next.next != null)
+tips: slow = slow.next; 
+	  fast = fast.next.next;
+*** NO CYCLE ***
+*** FAST.NEXT != NULL BECAUSE WE LET FAST = FAST.NEXT.NEXT
+*** IF THE LENGTH OF LINKEDLIST IS ODD, THE MIDDLE OF LINKEDLIST IS LEFT ONE, SO WE SHOULD KEEP fast.next.next != null; IF JUST KEEP fast.next != null, THE MIDDLE OF LINKEDLIST WILL BE THE RIGHT ONE.
+
+8. Check If Linked List Has A Cycle (fast != null && fast.next != null)
+tips: if there is cycle, then slow will equal fast
+	  else fast.next == null;
+*** FAST != NULL BECAUSE WE LET FAST = FAST.NEXT.NEXT
+
+9. Remove Duplicates from Sorted List
+tips: cur is the position of the element first appear
+	  if cur.next.val == cur.val
+	  	next = cur.next.next;
+	  	cur.next = null;
+		cur = next;
+	  else
+	    cur = cur.next;
+
