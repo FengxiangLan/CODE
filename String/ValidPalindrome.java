@@ -1,30 +1,39 @@
 public class ValidPalindrome {
-	public boolean valid(String input) {
+	public boolean validPalindrome(String input) {
+		// once we meet left != right, we should consider whether
+		// 	1. left + 1 == right
+		//  2. left == right - 1
 		if (input == null || input.length() == 0) {
 			return true;
 		}
 
-		input = input.toUpperCase();
 		int left = 0;
 		int right = input.length() - 1;
 		while (left < right) {
-			if ((input.charAt(left) < 'A' || input.charAt(left) > 'Z') && (input.charAt(left) < '0' || input.charAt(left) > '9')) {
-		        left++;
-		        continue;
-			}
-			if ((input.charAt(right) < 'A' || input.charAt(right) > 'Z') && (input.charAt(right) < '0' || input.charAt(right) > '9')) {
-				right--;
-				continue;
-			}
-
 			if (input.charAt(left) == input.charAt(right)) {
 				left++;
 				right--;
-			}
-			else {
-				return false;
+			} else {
+				return isPalidrome(input, left + 1, right) || isPalidrome(input, left, right - 1);
 			}
 		}
+
+		return true;
+	}
+
+	private boolean isPalidrome(String input, int left, int right) {
+		if (left >= right) {
+			return true;
+		}
+
+		while (left < right) {
+			if (input.charAt(left) != input.charAt(right)) {
+				return false;
+			}
+			left++;
+			right--;
+		}
+
 		return true;
 	}
 }
