@@ -1,0 +1,192 @@
+1. Delete Nodes At Indices
+Tips: keep track of prev node -> when index in the indices, we should let
+		next = cur.next;
+		prev.next = next;
+		cur = cur.next;
+	  keep track of cur node -> when cur == null means no matter there are elements in indices that are not be selected, we should 
+	  	end the loop
+
+2. Rotate List by K places
+Tips: 
+	step1: get the length of LinkedList
+	step2: when k > len, that k = len - k % len
+	step3: connect head and tail, get a cycle.
+	step4: loop k steps, then get newHead
+
+Example: 1 -> 2 -> 3 -> 4 -> 5 -> null; k = 2
+							 ^
+						     |	                               
+	                        cur (CUR.NEXT == NULL, WE GET LEN)
+
+	     1 -> 2 -> 3 -> 4 -> 5 -> null; (cur.next = head, get a cycle)
+		 ^					 |
+		 |-------------------V	
+
+
+					   cur
+		 1 -> 2 -> 3 -> 4 -> 5 -> null; 
+		 ^					 |
+		 |-------------------V	
+		 (after 5 - 2 loop cur = cur.next, we get newHead is 4)
+
+3. Reverse Linked List In Pairs
+
+			 cur.next   next.next
+	5 -> 4 -> 3 -> 2 -> 1 -> null;
+	    cur   			^
+	    		   next |
+	          |_________|
+
+
+			  |--------|
+		cur  cur.next  V
+	5 -> 4 -> 3   2 -> 1 -> null;
+			  ^	  next
+			  |____|
+
+	5 -> 4 -> 2 -> 3 -> 1 -> null;
+				       cur
+Tips: 
+	---- iteration ----
+	dummy.next = head;
+	cur = dummy;
+
+	next = cur.next.next;
+	cur.next.next = next.next;
+	next.next = cur.next;
+	cur.next = next;
+	cur = cur.next.next
+
+	---- recursion ----
+	newHead = head.next;
+	head.next = reverse(head.next.next);
+	newHead.next = head;
+	return newHead;
+
+
+4. Partition Linked List
+Tips: 
+	splite it int smallerList and largerList
+	then connect head of largerList to tail of smallerList
+
+
+5. Cycle Node In Linked List
+					   first meet
+				  |- d-|
+		1 -> 2 -> 3 -> 4 -> 5
+		          ^  		|
+		          |_________|  
+        |---c-----|
+
+        2(c + d) - (c + 2d) = c
+        so, 4 -> 5- > 1 == 1 -> 2 -> 3
+        let slow move from head with one step
+        let fast move from first meet point with one step
+        they will meet at cross pointer
+
+6. Remove Extra Duplicates from Sorted List
+Tips:
+    dummyHead.next = head;
+    first = dummyHead;
+    cur = head;
+
+    while (cur != null && first.next.val == cur.next.val) {
+		cur = cur.next; // find duplicate element;
+	}
+
+	if (first.next == cur) {
+		// means there are no duplicate
+		first = first.next;
+	} else {
+	  cur = cur.next // remove all duplicate element;
+    }
+
+7. Remove Nth Node From End of List
+Tips:
+    step1: reverse
+    step2: delete
+    step3: reverse
+
+8. Insertion Sort Linked List
+Tips:
+  Insert sort rules:
+     get cur element
+     scan list from head to prev of cur element
+      - if not larger then cur, move to next
+      - if larger then cur, let cur replace this node
+  dummyHead.next = head;
+  prev = dummyHead;
+  cur = head;
+  temp = head;
+  while (cur != null) {
+  	prev = dummyHead; // to each cur node, scan from head to prev of cur
+  	while (prev.next != cur && prev.next.val <= cur.val) {
+		prev = prev.next; // check next
+  	}
+
+  	if (prev.next == cur) {
+		// means cur already at right position
+		cur = cur.next;
+		temp = temp.next;
+  	} else {
+		// put cur in right position
+		temp.next = cur.next;
+		cur.next = prev.next;
+		prev.next = cur;
+		cur = temp.next;
+  	}
+  }
+
+9. Merge Sort LinkedList
+Tips:
+	step1: get middle of linkedList
+	step2: merge sort left part
+	step3: merge sort right part
+	step4: combine two sorted linkedList
+	step5: return new head;
+
+10. Add Two Numbers
+Tips
+   new Linkedlist as sum
+   keep track of carry
+
+11. Reverse Nodes in k-Group
+Tips:
+    find kth node as cur
+    reverse (head, cur) get newHead
+    oldHead.next = reverseK(cur, k)
+
+12. Reverse Alternate Nodes
+	let even = head.next
+    let head.next = head.next.next;
+
+    iterative: 
+    odd node add after head.next
+    even node add after even.next
+
+    add even to head.next;
+    return head;
+
+13. Check If Linked List Is Palindrome
+Tips:
+	step1: get middle node
+	step2: get left part, right part
+	step3: reverse right part
+	step4: compare left and right
+
+14. Merge K Sorted Lists
+Tips: use minHeap
+
+15. Deep Copy Linked List With Random Pointer
+Tips: use map to record the node already visited
+
+16. Odd Even Linked List
+	let even = head.next
+    let head.next = head.next.next;
+
+    iterative: 
+    odd node add after head.next
+    even node add after even.next
+
+    add reverse(even) to head.next;
+    return head;
