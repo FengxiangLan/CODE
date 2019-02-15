@@ -53,4 +53,75 @@ Terminate
 	queue is empty or return false in the generation process
 
 2. Best First Search
+Dijkstra's algorithm
+	1. Usages: find the shortest path cost from a single node (source node) to any other nodes in that graph
+	2. Data structure: priority_queue (minHeap)
+     
+        1  (s)   10
+	6 ----- 4 ----- 5 \ 1
+	        |		|  \
+	       1|	   1|   1 (goal)
+	        |		|  /
+	        3 ----- 2 / 1
+	        	1
+Data structure:
+Prority queue (min heap)
+Expanded node <4, 0> <6, 1> <3, 1> <2, 2> <5, 3> <1, 4>
+
+Algorithm:
+Initialize: enqueue <the source node, 0>
+For each step:
+	Expand:
+		dequeue the node (x) with smallest distance from the source - O(logn)
+		dedup: if x has been expanded before, don't generate anything
+	Generate:
+		enqueue all neighbors <the neighbor, dist(x) + weight(x->y)> - O(out-deg * logn)
+		if (dist(x) + weight(x->y) >= dist(y)), ignore
+		if (dist(x) + weight(x->y) < dist(y)), enqueue
+	Terminate
+		the queue is empty
+	Dedup:
+		each node is expanded only once
+
+For example: 
+	Initialize: <4, 0>
+	step1:
+		Expand (queue <4, 0>)
+			dequeue <4, 0>
+			not visited(4)
+		Generated
+			enqueue <6, 1> <3, 1> <5, 10>
+	step2:
+		Expand (queue <6, 1> <3, 1> <5, 10>)
+			dequeue <6, 1>
+			not visited(6)
+		Generated
+			NONE
+	step3:
+		Expand (queue <3, 1> <5, 10>)
+			dequeue <3, 1>
+			not visited(3)
+		Generated
+			<2, 2>
+	step4:
+		Expand (queue <2, 2> <5, 10>)
+			dequeue <2, 2>
+			not visited(2)
+		Generated
+			<5, 3>
+			<1, 3>
+	step5:
+		Expand (queue <1, 3> <5, 3>)
+			dequeue <5, 3>
+			not visted(5)
+		Generated
+			NONE
+	step6:
+		Expand (<1, 3>)
+			dequeue <1, 3>
+			not visited(1)
+		Generated
+			NONE
+	step7:
+		queue is empty
 
