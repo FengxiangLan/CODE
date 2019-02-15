@@ -1,0 +1,39 @@
+min/max heap ===== priority queue
+
+Example: 
+
+			1
+		/		\
+	   3		 2
+	 /   \      /  \
+	5	 4		7	null
+
+index  0	1	2	3	4	5
+	   1	3	2	5	4	7
+
+性质：
+	1. 堆总是一棵完全二叉树
+	2. 任意节点小于它的所有后裔 （minHeap）
+
+根节点最小的堆叫做最小堆MIN HEAP。 将根节点最大的堆叫做MAX HEAP
+
+implemented as unsorted array
+	1. index of lChild = my index * 2 + 1
+	2. index of rChild = my index * 2 - 1;
+	3. index of parent = (my index - 1) / 2;
+
+Operations:
+	1. insert: O(nlogn) percolateUp
+	2. update: O(logn)
+	3. get/top: O(1)
+	4. pop: O(logn) percolateDown
+	5. heapify: 使得一个unsorted array 变成一个堆 O(n)
+
+Heap in Java --- PriorityQueue
+It is a heap with the same Queue interface with offer(), peek(), poll()
+
+The PriorityQueue will arrange the elements based on the order of the elements (who is smaller/larger by comparing any two of them) and it is optimized for problems about "who is the smallest/largest element"
+
+Internally it is implemented using an array
+
+
