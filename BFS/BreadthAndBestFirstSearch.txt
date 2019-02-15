@@ -1,0 +1,56 @@
+1. Breadth-First Search 
+Use queue store children (FIFO)
+*** put my left child then put my right child ***
+*** expand my left child then expand my right child ***
+
+How to describe a Breadth-First Search
+	1. maintain a FIFO queue, put all traversed nodes that haven't been expanded
+
+	2. Expand a node like visit/print its value
+
+	3. Generate neighbor nodes
+
+	4. Termination condition: do a loop until the queue is empty
+
+	5. Optionally deduplicate visited nodes
+
+Example 1: Bipartite
+
+1 -- 2 -- 4
+ \    \
+  \    \
+   3 --- 5
+
+Data structure: FIFO queue
+Initialize: enqueue 1, color 1 with u
+For each step:
+Expand: dequeue the first element (x) of the queue
+Generate: enqueue all the neightbors (y) and color them with the other color
+     case 1: y is generated before
+     	case 1.1: y's color is different from x's color, ignore
+     	case 1.2: y's colot is the same as x's color, CONFLICT
+Terminate: queue is emoty or when there's a conflict
+Dedup: record each node's color (empty, u, v)
+
+Example 2: Determine whether a binary tree is a complete binary tree
+
+			1
+		/	 	\
+	   3		 2
+	  /	 \		/  \
+	 5    4   null  9
+	/ \  / \
+null null null null	
+
+Data structure: 
+	FIFO queue
+	flag: whether I detected bubbles
+Expand: dequeue
+Generate:
+	when the flag is off, if left child or right child is null, set flag
+	when the flag is on, if left child or right child is not null, return false;
+Terminate
+	queue is empty or return false in the generation process
+
+2. Best First Search
+
