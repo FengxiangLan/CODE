@@ -1,0 +1,23 @@
+Implementing Heaps:
+Definition
+	- Heap is a binary tree based data structure
+	- Across the entire tree, the relation between a parent node and a child node stays consistent
+	- The common implementation of a heap is using a complete binary tree
+
+Basic Heap Internal Operations
+1. percolateUp()
+	when to use ? 
+		the element need to be moved up to maintain the heap's property, for example, when offering a new element into the heap
+	how ?
+		compare the element with its parent, move it up when necessary. do this until the element does not need to be moved
+	offer()
+2. percolateDown()
+	when to use ?
+		the element need to be moved down to maintain the heap's property, for example, when poll the root element from the heap
+
+	How ?
+		compare the element with its two children, if the smallest one of the two children is smaller than the element, swap the element with that chold. do this until the element does not need to be moved.
+	poll()
+3. 
+
+
