@@ -5,19 +5,36 @@ Definition
 	- The common implementation of a heap is using a complete binary tree
 
 Basic Heap Internal Operations
-1. percolateUp()
+1. percolateUp() -- O(height) == O(logn)
 	when to use ? 
 		the element need to be moved up to maintain the heap's property, for example, when offering a new element into the heap
 	how ?
 		compare the element with its parent, move it up when necessary. do this until the element does not need to be moved
 	offer()
-2. percolateDown()
+	update()
+2. percolateDown() -- O(height) == O(logn)
 	when to use ?
 		the element need to be moved down to maintain the heap's property, for example, when poll the root element from the heap
 
-	How ?
+	how ?
 		compare the element with its two children, if the smallest one of the two children is smaller than the element, swap the element with that chold. do this until the element does not need to be moved.
 	poll()
-3. 
+	update()
+	heapify()
+3. heapify()
+	convert an array into a heap in O(n) time
+	how ?
+		- for each node that has at least one child, we perform percolateDown() action, in the order of from the nodes on the deepest level to the root.
+		- the time complexity of heapify is O(n)
+
+4. update()
+	if you know the position of the element you want to update, it will take O(logn)
+	how ?
+		either you need percolateUp(), or percolateDown() on that element
+	what if you do not know the position of the element ?
+		you need to find the position of the element first, if not asking for help with other additional data structures, this operation is O(n)
+
+
+
 
 
