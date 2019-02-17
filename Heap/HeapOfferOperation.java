@@ -4,7 +4,6 @@ public class HeapOfferOperation {
 		if (array.length == 1) {
 			return array;
 		}
-
 		percolateUp(array, array.length - 1);
 		return array;
 	}
@@ -12,8 +11,8 @@ public class HeapOfferOperation {
 	private void percolateUp(int[] array, int index) {
 		while (index > 0) {
 			int parentIndex = (index - 1) / 2;
-			if (array[index] < array[parentIndex]) {
-				swap(array, index, parentIndex);
+			if (array[parentIndex] > array[index]) {
+				swap(array, parentIndex, index);
 			} else {
 				break;
 			}
