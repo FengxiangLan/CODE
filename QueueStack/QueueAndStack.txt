@@ -1,0 +1,12 @@
+1. Queue
+	1.1 Example: wait in a line, FIFO == First in first out
+	1.2 Usages: Breadth-First Search related problems
+	1.3 Classical Problem:
+		Tree printout by level
+		Slide window problems
+		*** Queue = {p2 p3 p4} ***
+			  head	     tail
+		xxxxxxx@@@@@@@@@@@@xxxxxxxxxxx
+2. Stack
+	LIFO last in first out
+	
